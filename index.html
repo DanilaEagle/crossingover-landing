@@ -88,7 +88,7 @@
     }
 
     .glow-card {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
       position: relative;
     }
     .glow-card:hover {
@@ -114,11 +114,13 @@
       background: #ea580c;
     }
 
+    /* Исправленный скролл кейсов: разрешены и горизонтальный свайп, и вертикальная прокрутка */
     .slider-touch {
-      touch-action: pan-y pinch-zoom !important;
+      touch-action: pan-y pinch-zoom;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior: auto;
+      overflow-x: auto;
       scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
     }
 
     #volume-slider {
@@ -159,7 +161,7 @@
   <div id="menu-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden transition-opacity"></div>
 
   <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-brand-border w-full shadow-sm">
-    <div class="max-w-6xl mx-auto px-2.5 sm:px-6 h-16 flex items-center justify-between gap-1 sm:gap-4 relative w-full box-border">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-1 sm:gap-4 relative w-full box-border">
       
       <a href="index.html" class="flex items-center gap-2 group shrink min-w-0">
         <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-brand-600 via-amber-500 to-slate-800 shadow-sm shrink-0 transition-transform group-hover:scale-105">
@@ -216,7 +218,7 @@
           Оставить заявку
         </a>
 
-        <button id="menu-toggle" class="lg:hidden p-1.5 rounded-lg border border-brand-border bg-slate-50 text-slate-700 hover:text-slate-900 focus:outline-none shrink-0" aria-label="Открыть меню">
+        <button id="menu-toggle" class="lg:hidden p-1.5 sm:p-2 rounded-lg border border-brand-border bg-slate-50 text-slate-700 hover:text-slate-900 focus:outline-none shrink-0" aria-label="Открыть меню">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -564,7 +566,7 @@
 
         <div id="cases-slider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 pt-1 slider-touch w-full min-w-0">
           
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Продажа АЗС</span>
@@ -597,7 +599,7 @@
             </div>
           </div>
 
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Опт и Станки</span>
@@ -630,7 +632,7 @@
             </div>
           </div>
 
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Производство</span>
@@ -663,7 +665,7 @@
             </div>
           </div>
 
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Недвижимость</span>
@@ -696,7 +698,7 @@
             </div>
           </div>
 
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Строительство</span>
@@ -729,7 +731,7 @@
             </div>
           </div>
 
-          <div class="glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
+          <div class="case-card glow-card w-[84vw] max-w-[340px] sm:w-[380px] shrink-0 snap-start bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-xs">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">Спецтехника</span>
@@ -1149,17 +1151,66 @@
       }, { passive: true });
     }
 
+    // Слайдер кейсов (кнопки и тач-жесты со свободным вертикальным скроллом)
     const casesSlider = document.getElementById('cases-slider');
     const prevBtn = document.getElementById('slider-prev');
     const nextBtn = document.getElementById('slider-next');
 
+    function getScrollStep() {
+      const card = casesSlider ? casesSlider.querySelector('.case-card') : null;
+      return card ? card.offsetWidth + 16 : 320;
+    }
+
     if (casesSlider && prevBtn && nextBtn) {
       prevBtn.addEventListener('click', () => {
-        casesSlider.scrollBy({ left: -340, behavior: 'smooth' });
+        casesSlider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
       });
       nextBtn.addEventListener('click', () => {
-        casesSlider.scrollBy({ left: 340, behavior: 'smooth' });
+        casesSlider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
       });
+
+      let startX = 0;
+      let startY = 0;
+      let isHorizontalSwipe = false;
+      let isVerticalScroll = false;
+
+      casesSlider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isHorizontalSwipe = false;
+        isVerticalScroll = false;
+      }, { passive: true });
+
+      casesSlider.addEventListener('touchmove', (e) => {
+        if (isVerticalScroll) return;
+
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+
+        if (!isHorizontalSwipe && Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 8) {
+          isVerticalScroll = true;
+          return;
+        }
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 8) {
+          isHorizontalSwipe = true;
+        }
+      }, { passive: true });
+
+      casesSlider.addEventListener('touchend', (e) => {
+        if (!isHorizontalSwipe) return;
+
+        const endX = e.changedTouches[0].clientX;
+        const diffX = endX - startX;
+
+        if (Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            casesSlider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+          } else {
+            casesSlider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+          }
+        }
+      }, { passive: true });
     }
 
     const nichesData = {
